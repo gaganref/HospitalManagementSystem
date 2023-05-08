@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hospital Management System</title>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+<!Java script file for home tabs>
+<script src="js/Home_Login.js"></script>
+	
+<!Home Header and left,right split>
+<link rel="stylesheet" href="css/Home_Header.css">
+
+<!CSS script file for home tabs>
+<link rel="stylesheet" href="css/Home_Login.css">
+
+<!CSS script file for home tabs>
+<link rel="stylesheet" href="css/Contact_Form.css">
+	
+	
+	
+	<script>
+	function testResults (form) {
+    var getName = form.name.value;
+	var getEmail = form.email.value;
+	var getSubject = form.subject.value;
+    alert ("Name: " + getName + "\n\n" + getEmail + getSubject);
+}
+	</script>
+	
+	
+<style>
+
+	.block{
+		position: absolute;		
+		background-color: #444444;
+		border-radius: 8px;
+        font-size: 16px;
+		color: #ddd;
+		padding: 30px;
+		left: 55px;
+		top: 70px;
+		right: 55px;
+		line-height: 20px;
+		text-align: justify;
+		}
+	
+</style>
+
+</head>
+
+<body>
+	
+	<div class="header">
+		<a href="JavaScript: location.reload(true);" class="logo">HMS</a>
+		<div class="header-right">
+			<a href="Hospital Management System.html">Home</a>
+			<a href="HMS_About.html">About</a>
+			<a class="active">Contact</a>
+		</div>
+	</div>
+	
+	<div class="split left"> 
+		<div class="container">
+			<img class="opacity" src="photo.jpg" alt="Docters" style="width:100%;opacity: 0.75">
+			<div class="text-block">
+				<h1>Hospital</h1>
+				<h1>Management</h1>
+				<h1>System</h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="split right">
+		<div class="block">
+			<form name="myForm" method="get">
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" placeholder="Your name..">
+
+				<label for="email">E-mail</label>
+				<input type="e-mail" id="email" name="email" placeholder="Your E-mail..">
+
+				<label for="subject">Subject</label>
+				<textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+
+				<input type="submit" value="Submit" onClick="testResults(this.form)">
+  			</form>
+		</div>
+	</div>
+		
+
+</body>
+	
+</html>

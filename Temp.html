@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+	
+	<script>
+		$(function() {
+    $('#watchButton').click();
+});
+		
+	function showtab(tabs)
+{
+    var tab=tabs;
+    switch(tab) //this switch case replaces the tabContent
+    {
+      case "tab-1":
+        document.getElementById('tablecontainer').innerHTML = document.getElementById("tab-1").innerHTML;
+        break;
+      case "tab-2":
+        document.getElementById('tablecontainer').innerHTML = document.getElementById("tab-2").innerHTML;
+        break;
+      case "tab-3":
+        document.getElementById('tablecontainer').innerHTML = document.getElementById("tab-3").innerHTML;
+        break;
+      default:
+        document.getElementById('tablecontainer').innerHTML = document.getElementById("tab-1").innerHTML;
+        break;
+    }
+}
+	</script>
+	
+</head>
+<body>
+	<p>&nbsp;</p>
+				<table border="0" cellpadding="1" cellspacing="1">
+					<tbody>
+						<tr>
+							<td><div id="watchButton"><a href="javascript:showtab('tab-1')" > FIRST </a> |</div><td>
+							<td><a href="javascript:showtab('tab-2')"> SECOND </a> |</td>
+							<td><a href="javascript:showtab('tab-3')"> THIRD </a> |</td>
+						</tr>
+					</tbody>
+				</table>
+				<p id="tablecontainer"></p>
+				<p id="tab-1" style="visibility:hidden"> Dummy Content from First Tab </p>
+				<p id="tab-2" style="visibility:hidden"> Find content from Second tab </p>
+				<p id="tab-3" style="visibility:hidden"> Content from Third Tab will be placed here </p>
+</body>
+</html>

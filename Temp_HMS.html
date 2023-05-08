@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Temp_HMS</title>
+	
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+    
+    // Variables
+    var clickedTab = $(".tabs > .active");
+    var tabWrapper = $(".tab__content");
+    var activeTab = tabWrapper.find(".active");
+    var activeTabHeight = activeTab.outerHeight();
+    
+    // Show tab on page load
+    activeTab.show();
+    
+    // Set height of wrapper on page load
+    tabWrapper.height(activeTabHeight);
+    
+    $(".tabs > li1").on("click", function() {
+        
+        // Remove class from active tab
+        $(".tabs > li1").removeClass("active");
+        
+        // Add class active to clicked tab
+        $(this).addClass("active");
+        
+        // Update clickedTab variable
+        clickedTab = $(".tabs .active");
+        
+        // fade out active tab
+        activeTab.fadeOut(250, function() {
+            
+            // Remove active class all tabs
+            $(".tab__content > li1").removeClass("active");
+            
+            // Get index of clicked tab
+            var clickedTabIndex = clickedTab.index();
+
+            // Add class active to corresponding tab
+            $(".tab__content > li1").eq(clickedTabIndex).addClass("active");
+            
+            // update new active tab
+            activeTab = $(".tab__content > .active");
+            
+            // Update variable
+            activeTabHeight = activeTab.outerHeight();
+            
+            // Animate height of wrapper to new tab height
+            tabWrapper.stop().delay(50).animate({
+                height: activeTabHeight
+            }, 500, function() {
+                
+                // Fade in active tab
+                activeTab.delay(50).fadeIn(250);
+                
+            });
+        });
+    });
+});
+
+
+	</script>
+	
+	
+	<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+	
+	
+	<script>
+	
+		
+		
+	</script>
+	
+	
+<style>
+
+	.header{
+		background: rgb(126,133,243);
+		background: radial-gradient(circle, rgba(126,133,243,0.9363095580028886) 0%, rgba(98,99,243,0.6786064767703957) 44%, rgba(102,208,230,0.8774860285911239) 100%);
+		overflow: hidden;
+		padding: 10px 0px 10px 0px;
+		width: 100%;
+	    }
+	
+	.header a{
+		float: left;
+  		color: #3E3E3E;
+  		text-align: center;
+  		padding: 12px;
+  		text-decoration: none;
+  		font-size: 18px; 
+  		line-height: 20px;
+  		border-radius: 4px;
+		cursor: pointer;
+		}
+	
+	.header a.logo{
+  		font-size: 36px;
+		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+  		font-weight: bold;
+		letter-spacing: 4px;
+		}
+
+	.header a:hover{
+  		background-color: #ddd;
+  		color: #212020;
+		}
+
+	.header a.active{
+  		background-color: dodgerblue;
+  		color: white;
+		}
+
+	.header-right{
+  		float: right;
+		}
+	
+	.split{
+  		height: 100%;
+  		position: fixed;
+  		z-index: 1;
+  		overflow-x: hidden;
+		}
+	
+	img{
+		opacity: 0.75;
+		}
+
+	.left{
+		left: 0px;
+		width: 70%;
+		}
+
+	.right{
+		right: 0px;
+		width: 35%;
+		background-color: #ddd;
+		}
+	
+	body {
+		background: #FFF;
+		margin: 0;
+		padding: 0;
+		font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-weight: light;
+		font-weight: 100;
+	}
+
+.loginWrapper {
+	display: block;
+	position: relative;
+	width: 350px;
+	text-align: center;	
+	margin: auto;
+	right: 0;
+	left: 0;
+	margin-top: 120px;
+	margin-bottom: 60px;
+	z-index: 1000;
+	transition: box-shadow 1s;
+}
+
+.logginFormFooter {
+	text-align: center;
+	color: #777;
+	width: 100%;
+	font-size: 12px;
+	position: fixed;
+	bottom: 10px;
+}
+
+	.logginFormFooter a       {color: #777; font-weight: 600;}
+	.logginFormFooter a:hover {color: #AAA;}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+}
+	
+
+nav {
+  z-index: 9;
+  color: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.tabs {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+.tabs > li1 {
+  transition-duration: .25s;
+  display: table-cell;
+  list-style: none;
+  text-align: center;
+  padding: 20px 20px 25px 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: #666;
+  background-color: none;
+
+}
+.tabs > li1:before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 120%;
+  color: #FFF;  
+  top: 0;
+  left: 0;
+ 	background-color: #DDD;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  transition-duration: .25s;
+  border-radius: 8px 8px 0 0;
+}
+
+.tabs > li1:hover:before {
+  -webkit-transform: translateY(70%);
+  transform: translateY(70%);
+}
+.tabs > li1.active {
+  color: #FFF;
+}
+.tabs > li1.active:before {
+  transition-duration: .5s;
+ 	background-color: #444;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.tab__content {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+ 	background-color: #444;
+-webkit-box-shadow: 0px 12px 34px -8px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px 12px 34px -8px rgba(0,0,0,0.28);
+box-shadow: 0px 12px 34px -8px rgba(0,0,0,0.28);
+ 
+}
+.tab__content > li1 {
+  width: 100%;
+  position: absolute;
+  border-radius: 8px;
+  color: #FFF;
+  top: 0;
+  left: 0;
+  background-color: #444;
+  display: none;
+  list-style: none;
+}
+.tab__content > li1 .content__wrapper {
+  text-align: center;
+  border-radius: 8px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #444;
+}
+
+
+	form input {
+		border: none;
+		padding: 12px;
+		background: #EEE;
+		font-size: 16px;
+		margin: 12px 0px;
+		width: 300px;
+		font-weight: 100;
+    	outline: none;
+	}
+	form input:first-child {margin-top: 8px;}
+	form input:last-child {margin-top: 35px; margin-bottom: 10px;}
+	
+	form input:focus {background-color: #FFF;}
+	form input:hover {background-color: #FFF;}
+	form input:placeholder {color: blue;}
+
+	form [type="submit"]:focus,
+	form [type="submit"]:hover {background: #009CEF;}
+
+	form [type="submit"] {
+		background: dodgerblue;
+		color: #FFF;
+		padding: 12px;
+		width: 32%;
+		cursor: pointer;
+	}
+
+	::-webkit-input-placeholder {color: #DDD;}
+	:-moz-placeholder           {color: #DDD;}
+	::-moz-placeholder          {color: #DDD;}
+	:-ms-input-placeholder      {color: #DDD;}
+
+	.container {
+  position:relative;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-weight: bold;
+  font-size: 45px;
+  left: 0px;
+  right:0px;
+  opacity: 0.75;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  color:rgba(97,122,226,0.93);
+  padding-left: 20px;
+  left:10px;
+	line-height: 80px;
+}
+	
+	.block{
+		position: absolute;
+		background-color: #444444;
+		border-radius: 8px;
+		font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-weight: normal;
+        font-size: 16px;
+		color: #ddd;
+		padding: 30px;
+		left: 55px;
+		top: 70px;
+		right: 55px;
+		line-height: 20px;
+		text-align: justify;
+	}
+	
+</style>
+</head>
+
+<body>
+<div class="header">
+		<a href="JavaScript: location.reload(true);" class="logo">HMS</a>
+		<div class="header-right">
+    		<ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu1">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu2">Contact</a>
+    </li>
+  </ul>
+  		</div>
+</div>
+<div class="split left"> 
+	<div class="container">
+  <img src="photo.jpg" alt="Docters" style="width:100%;">
+  <div class="text-block">
+    <h1>Hospital</h1>
+    <h1>Management</h1>
+	  <h1>System</h1>
+  </div>
+</div>
+</div>
+<div class="split right">
+
+	<div class="tab-content">
+    <div id="home" class="container tab-pane active">
+	<section class="loginWrapper">
+  
+	<ul class="tabs">
+		<li1 class="active">User</li1>
+		<li>Patient</li>
+	</ul>
+
+	<ul class="tab__content">
+    
+		<li class="active">
+			<div class="content__wrapper">
+				<form method="POST" action="">
+					<input type="email" name="email" placeholder="email">
+					<input type="password" name="password" placeholder="Password">
+					<input type="submit" value="Login" name="login">
+				</form>
+			</div>
+		</li>
+   
+		<li>
+			<div class="content__wrapper">
+				<form method="POST" action="">
+					<input type="tel" name="tel" placeholder="Phone No">
+					<input type="pass" name="pass" placeholder="Reference No">
+					<input type="submit" value="Login" name="login">
+				</form>
+			</div>
+		</li>
+  
+	</ul>
+		
+</section>
+
+	</div>
+
+<div id="menu1" class="container tab-pane fade"><br>
+	
+	<div class="block">
+  <p>Hospitals are essential part of our Modern life.People may suffer from different diseases or problems in our day to day problems. These may be the result of our day to day actions, or our habits, weather conditions, Influenza viruses. On an average thousands of people are visiting hospital every day. 3 times is the average of a person visiting to a hospital in a year. From this we can note that hospitals contains a large data that to be manged and keep a track of.</p>It is necessary for hospitals to keep track of all the data of patients, doctors, nurses, ward members and a lot of other hospital operations which may or may not be related to patients health. Keeping all this data on paper and storing into files is complex job to do and again we have to protect the data. Thus we are proposing a digital system that can store the data and update the data in real time with out having a tiring job to find the record. This would be helpful in many ways and this technically and economically feasible.
+</div>
+</div>
+		
+<div id="menu2" class="container tab-pane fade"><br>
+	<section class="loginWrapper">
+	<ul class="tab__content">
+		<li class="active">
+	  <div class="content__wrapper">
+		  <h3>Got a problem ?</h3>
+		  <h1>&emsp;</h1>
+				<form method="POST" action="">
+					<input type="text" name="name" placeholder="Name">
+					<input type="email" name="email" placeholder="email">
+					<input type="text" name="query" placeholder="Enter Your Query">
+					<input type="submit" value="Submit" name="Submit">
+				</form>
+			</div>
+			</li>
+		</ul>
+		</section>
+</div>
+	
+	
+	
+</div>
+	</div>
+</body>
+</html>

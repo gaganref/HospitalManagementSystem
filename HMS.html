@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hospital Management System</title>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+<!Java script file for home tabs>
+<script src="js/Home_Login.js"></script>
+	
+<!Java script file for header tabs>
+<script src="js/header_tabs.js"></script>
+	
+<!Home Header and left,right split>
+<link rel="stylesheet" href="css/Home_Header.css">
+
+<!CSS script file for home tabs>
+<link rel="stylesheet" href="css/Home_Login.css">
+
+
+<style>
+
+	
+</style>
+
+</head>
+
+<body>
+	
+	<div class="header">
+		<a href="JavaScript: location.reload(true);" class="logo">HMS</a>
+		<div class="header-right" onClick="myFunction(event)" id="navList">
+			<a class="active" id="home">Home</a>
+			<a id="about">About</a>
+			<a id="contact">Contact</a>
+		</div>
+	</div>
+	
+	<div class="split left"> 
+		<div class="container">
+			<img class="opacity" src="photo.jpg" alt="Docters" style="width:100%;opacity: 0.75">
+			<div class="text-block">
+				<h1>Hospital</h1>
+				<h1>Management</h1>
+				<h1>System</h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="split right">
+		<section class="loginWrapper">
+			<ul class="tabs">
+				<li class="active">User</li>
+				<li>Patient</li>
+			</ul>
+			<ul class="tab__content">
+				<li class="active">
+					<div class="content__wrapper">
+						<form method="POST" action="">
+							<input type="email" name="email" placeholder="email">
+							<input type="password" name="password" placeholder="Password">
+							<input type="submit" value="Login" name="login">
+						</form>
+					</div>
+				</li>
+				<li>
+					<div class="content__wrapper">
+						<form method="POST" action="">
+							<input type="tel" name="tel" placeholder="Phone No">
+							<input type="pass" name="pass" placeholder="Reference No">
+							<input type="submit" value="Login" name="login">
+						</form>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</div>
+		
+
+</body>
+	
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*
+Define this in your CSS 
+.ease-inAnimation = Replace it by the name you want to give your animation
+.easeinAnimObj = Assign this class to the elements to which you want to apply the animation
+*/
+
+.ease-inAnimation {
+	position: relative;
+	/* Chrome, Safari*/
+	-webkit-animation-name: ease-inAnimation;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-delay: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-play-state: running;
+	/* Mozilla */	
+	-moz-animation-name: ease-inAnimation;
+	-moz-animation-duration: 5s;
+	-moz-animation-timing-function: ease-in;
+	-moz-animation-delay: 2s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
+	-moz-animation-play-state: running;	
+	/* Standard syntax */
+	animation-name: ease-inAnimation;
+	animation-duration: 5s;
+	animation-timing-function: ease-in;
+	animation-delay: 2s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-play-state: running;
+}
+
+/* 
+Define the keyframe and changes
+*/
+
+/* Chrome, Safari */
+@-webkit-keyframes ease-inAnimation {
+	0% {
+		left: 0;
+		top: 0;
+	}
+	100% {
+		left: 200px;
+		top: 0;
+	}
+}
+
+/* Firefox */
+@-moz-keyframes ease-inAnimation {
+	0% {
+		left: 0;
+		top: 0;
+	}
+	100% {
+		left: 200px;
+		top: 0;
+	}
+}
+
+/* Standard syntax */
+@keyframes ease-inAnimation {
+	0% {
+		left: 0;
+		top: 0;
+	}
+	100% {
+		left: 200px;
+		top: 0;
+	}
+}}
+	
+</style>
+	
+</head>
+<body>
+	<h1 class="ease-inAnimation">hospital</h1>
+</body>
+</html>
+
+
+
+
+
+<script>
+	$(document).ready(function(){
+    
+    // Variables
+    var clickedTab = $(".tabs > .active");
+    var tabWrapper = $(".tab__content");
+    var activeTab = tabWrapper.find(".active");
+    var activeTabHeight = activeTab.outerHeight();
+    
+    // Show tab on page load
+    activeTab.show();
+    
+    // Set height of wrapper on page load
+    tabWrapper.height(activeTabHeight);
+    
+    $(".tabs > li").on("click", function() {
+        
+        // Remove class from active tab
+        $(".tabs > li").removeClass("active");
+        
+        // Add class active to clicked tab
+        $(this).addClass("active");
+        
+        // Update clickedTab variable
+        clickedTab = $(".tabs .active");
+        
+        // fade out active tab
+        activeTab.fadeOut(250, function() {
+            
+            // Remove active class all tabs
+            $(".tab__content > li").removeClass("active");
+            
+            // Get index of clicked tab
+            var clickedTabIndex = clickedTab.index();
+
+            // Add class active to corresponding tab
+            $(".tab__content > li").eq(clickedTabIndex).addClass("active");
+            
+            // update new active tab
+            activeTab = $(".tab__content > .active");
+            
+            // Update variable
+            activeTabHeight = activeTab.outerHeight();
+            
+            // Animate height of wrapper to new tab height
+            tabWrapper.stop().delay(50).animate({
+                height: activeTabHeight
+            }, 500, function() {
+                
+                // Fade in active tab
+                activeTab.delay(50).fadeIn(250);
+                
+            });
+        });
+    });
+});
+
+
+		</script>
